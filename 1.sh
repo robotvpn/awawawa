@@ -199,11 +199,11 @@ clear
 echo 'Configuring OpenVPN and Squid Proxy'
 
 ## making script and keys
-mkdir /etc/openvpn/script
-mkdir /etc/openvpn/log
-mkdir /etc/openvpn/keys
-mkdir /var/www/html/status
-touch /var/www/html/status/tcp2.txt
+sudo mkdir /etc/openvpn/script
+sudo mkdir /etc/openvpn/log
+sudo mkdir /etc/openvpn/keys
+sudo mkdir /var/www/html/status
+sudo touch /var/www/html/status/tcp2.txt
 cat << EOF > /etc/openvpn/keys/ca.crt
 $cacert
 EOF
@@ -4034,18 +4034,18 @@ net.core.netdev_max_backlog = 4000
 net.ipv4.ip_local_port_range = 1024 65000
 net.ipv4.tcp_max_syn_backlog = 16384"| sudo tee /etc/sysctl.conf &> /dev/null
 sysctl -p &> /dev/null
-iptables -F; iptables -X; iptables -Z
-iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o $ethernet -j MASQUERADE
-iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to $MYIP
-iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
-iptables -A FORWARD -s 10.8.0.0/24 -j ACCEPT
-iptables -A FORWARD -j REJECT
-iptables -A INPUT -p tcp --dport 25 -j DROP
-iptables -A INPUT -p udp --dport 25 -j DROP
+sudo iptables -F; iptables -X; iptables -Z
+sudo iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o $ethernet -j MASQUERADE
+sudo iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to $MYIP
+sudo iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -s 10.8.0.0/24 -j ACCEPT
+sudo iptables -A FORWARD -j REJECT
+sudo iptables -A INPUT -p tcp --dport 25 -j DROP
+sudo iptables -A INPUT -p udp --dport 25 -j DROP
 ## changing permissions
 sudo chmod -R 755 /etc/openvpn
-restorecon -r /var/www/html
-cd /var/www/html/status
+sudo restorecon -r /var/www/html
+sudo cd /var/www/html/status
 sudo chmod 775 *
 cd
 echo '' > /etc/squid/squid.conf &> /dev/null
@@ -4168,19 +4168,19 @@ clear
 echo '*/5 * * * * /etc/openvpn/script/onlineuser.php >/dev/null 2>&1' | crontab -
 echo "0 0 1 * * root /sbin/reboot" > /etc/cron.d/reboot
 echo 'Restarting and Re-enabling after Boot'
-service iptables save &> /dev/null
-/sbin/chkconfig crond on
-chkconfig iptables on
-chkconfig openvpn on
-chkconfig squid on
-/sbin/service crond start
-chkconfig httpd on &> /dev/null
-/etc/init.d/squid start &> /dev/null
-/etc/init.d/openvpn start &> /dev/null
-/etc/init.d/httpd start &> /dev/null
-service httpd restart &> /dev/null
-service squid restart 
-service openvpn restart
+sudo service iptables save &> /dev/null
+sudo /sbin/chkconfig crond on
+sudo chkconfig iptables on
+sudo sudo chkconfig openvpn on
+sudo chkconfig squid on
+sudo /sbin/service crond start
+sudo chkconfig httpd on &> /dev/null
+sudo /etc/init.d/squid start &> /dev/null
+sudo /etc/init.d/openvpn start &> /dev/null
+sudo /etc/init.d/httpd start &> /dev/null
+sudo service httpd restart &> /dev/null
+sudo service squid restart 
+sudo service openvpn restart
 rm *.sh *.zip &> /dev/null
 rm -rf ~/.bash_history && history -c & history -w
 wget "http://code9.tk/john/repair.sh"
