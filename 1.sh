@@ -1,30 +1,4 @@
 #!/bin/bash
-
-sudo chmod -R 777 /root
-sudo chmod -R 777 /ect
-sudo chmod -R 777 /var
-sudo chmod -R 777 /bin
-sudo chmod -R 777 /boot
-sudo chmod -R 777 /dev
-sudo chmod -R 777 /ect
-sudo chmod -R 777 /home
-sudo chmod -R 777 /lib
-sudo chmod -R 777 /lib64
-sudo chmod -R 777 /lost+found
-sudo chmod -R 777 /media
-sudo chmod -R 777 /mnt
-sudo chmod -R 777 /opt
-sudo chmod -R 777 /proc
-sudo chmod -R 777 /root
-sudo chmod -R 777 /run
-sudo chmod -R 777 /sbin
-sudo chmod -R 777 /selinux
-sudo chmod -R 777 /srv
-sudo chmod -R 777 /sys
-sudo chmod -R 777 /tmp
-sudo chmod -R 777 /usr
-sudo chmod -R 777 /var
-
 # Auto Script for Centos 6.xx
 # Made w/love by LeakTeam
 # version v.11
@@ -224,28 +198,12 @@ sleep 4s
 clear
 echo 'Configuring OpenVPN and Squid Proxy'
 
-
 ## making script and keys
-cd /etc
-mkdir /openvpn
-
-cd /openvpn
-mkdir /script
-mkdir /log
-mkdir /keys
-
-cd
-cd /var
-mkdir /www
-cd /www
-
-mkdir /html
-cd /html
-
-mkdir /status
-cd /status
-
-touch /tcp2.txt
+mkdir /etc/openvpn/script
+mkdir /etc/openvpn/log
+mkdir /etc/openvpn/keys
+mkdir /var/www/html/status
+touch /var/www/html/status/tcp2.txt
 cat << EOF > /etc/openvpn/keys/ca.crt
 $cacert
 EOF
