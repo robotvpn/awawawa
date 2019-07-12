@@ -4043,10 +4043,10 @@ iptables -A FORWARD -j REJECT
 iptables -A INPUT -p tcp --dport 25 -j DROP
 iptables -A INPUT -p udp --dport 25 -j DROP
 ## changing permissions
-chmod -R 755 /etc/openvpn
+sudo chmod -R 755 /etc/openvpn
 restorecon -r /var/www/html
 cd /var/www/html/status
-chmod 775 *
+sudo chmod 775 *
 cd
 echo '' > /etc/squid/squid.conf &> /dev/null
 echo "acl extensiondeny url_regex -i "/etc/squid/extensiondeny.txt"
