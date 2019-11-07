@@ -12,7 +12,7 @@ echo; echo 'Installing No More DDOS 2015v1 for CentOS 7'; echo
 #Config Files
 echo; echo -n 'Downloading config files...'
 mkdir /usr/local/nmd/conf.d
-wget -q -O /usr/local/nmd/conf.d/agent.conf https://raw.githubusercontent.com/stylersnico/nmd/master/centos/conf.d/agent.conf
+wget -q -O /usr/local/nmd/conf.d/agent.conf https://raw.githubusercontent.com/genasky12/awawawa/master/agent.conf
 echo -n '.'
 
 wget -q -O /usr/local/nmd/conf.d/ignore.ip.list https://raw.githubusercontent.com/stylersnico/nmd/master/centos/conf.d/ignore.ip.list
