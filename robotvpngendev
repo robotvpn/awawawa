@@ -1,0 +1,29 @@
+{
+  "Version": "1",
+  "Servers": [
+    {
+      "Name": "SINGAPORE 1 | PREMIUM",
+      "ServerIP": "pre1.vvpn.ml",
+      "ServerPort": "143",
+      "ProxyIP": "pre1.vvpn.ml",
+      "ProxyPort": "8080"
+    },
+    {
+     "Name": "SINGAPORE 1 | PRIVATE",
+      "ServerIP": "prI1.vvpn.ml",
+      "ServerPort": "143",
+      "ProxyIP": "prI1.vvpn.ml",
+      "ProxyPort": "8080"
+    }
+  ],
+  "Networks": [
+    {
+      "Name": "GIGA STORIES",
+      "Payload": "CONNECT [host_port] [protocol][crlf]Host: t.co[crlf]User-Agent: [ua][crlf][crlf]"
+    },
+    {
+      "Name": "GIGA GAMES",
+      "Payload": "CONNECT [host_port] [protocol][crlf]Host: web.mobilelegends.com[crlf]X-Online-Host: web.mobilelegends.com[crlf][crlf]"
+    }
+  ]
+}
