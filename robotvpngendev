@@ -14,9 +14,16 @@
       "ServerPort": "143",
       "ProxyIP": "prI1.vvpn.ml",
       "ProxyPort": "8080"
+    },
+    {
+     "Name": "SINGAPORE 3 | test",
+      "ServerIP": "prI1.vvpn.ml",
+      "ServerPort": "143",
+      "ProxyIP": "prI1.vvpn.ml",
+      "ProxyPort": "8080"
     }
   ],
-  "Networks": [
+  "Payloads": [
     {
       "Name": "GIGA STORIES",
       "Payload": "CONNECT [host_port] [protocol][crlf]Host: t.co[crlf]User-Agent: [ua][crlf][crlf]"
